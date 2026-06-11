@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2026-06-06T04:02:42.209Z",
+    "end": "2026-06-06T04:05:57.554Z",
+    "duration": 195345,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "20d191d5-f770-4d54-864b-8c29d8c016b0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\06_datos_iniciales.cy.js",
+      "file": "cypress\\e2e\\06_datos_iniciales.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "405b67a0-f367-4b12-879f-8144a7ae1ca2",
+          "title": "MAKISHOP - Carga de datos iniciales",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Actualizar stock de productos existentes",
+              "fullTitle": "MAKISHOP - Carga de datos iniciales Actualizar stock de productos existentes",
+              "timedOut": null,
+              "duration": 147479,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "login();\nproductos.forEach(producto => {\n  cy.log(`Actualizando stock: ${producto.nombre}`);\n  cy.visit('/odoo/inventory/products');\n  cy.wait(2000);\n  // Buscar producto\n  cy.get('.o_searchbox input, input.o_searchbox_input').first().clear().type(producto.nombre);\n  cy.get('.o_searchbox input, input.o_searchbox_input').first().type('{enter}');\n  cy.wait(2000);\n  // Abrir producto\n  cy.get('.o_kanban_record, .o_data_row').first().click();\n  cy.wait(2000);\n  // Actualizar cantidad\n  cy.contains('Actualizar cantidad').click();\n  cy.wait(1500);\n  // Ingresar cantidad\n  cy.get('.o_field_widget[name=\"inventory_quantity\"] input').first().clear().type(producto.stock);\n  // Aplicar\n  cy.contains('Aplicar todo').click({\n    force: true\n  });\n  cy.wait(1500);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `.o_searchbox input, input.o_searchbox_input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `.o_searchbox input, input.o_searchbox_input`, but never found it.\n    at eval (webpack://automatizacion-cypress/./cypress/e2e/06_datos_iniciales.cy.js:37:9)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack://automatizacion-cypress/./cypress/e2e/06_datos_iniciales.cy.js:31:14)",
+                "diff": null
+              },
+              "uuid": "cd946a5a-e6c4-4b10-8960-ccfcec2548c9",
+              "parentUUID": "405b67a0-f367-4b12-879f-8144a7ae1ca2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Crear clientes en contactos",
+              "fullTitle": "MAKISHOP - Carga de datos iniciales Crear clientes en contactos",
+              "timedOut": null,
+              "duration": 47709,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "login();\nclientes.forEach(cliente => {\n  cy.log(`Creando cliente: ${cliente.nombre}`);\n  cy.visit('/odoo/contacts/new');\n  cy.get('.o_form_view').should('be.visible');\n  cy.wait(1500);\n  // Tipo persona\n  cy.get('input[data-value=\"person\"]').click({\n    force: true\n  });\n  cy.wait(500);\n  // Nombre\n  cy.get('.o_field_widget[name=\"name\"] input').clear().type(cliente.nombre);\n  // Email\n  cy.get('.o_field_widget[name=\"email\"] input').clear().type(cliente.email);\n  // Teléfono\n  cy.get('.o_field_widget[name=\"phone\"] input').clear().type(cliente.telefono);\n  // Guardar\n  cy.get('.o_form_button_save').click();\n  cy.wait(1500);\n});",
+              "err": {
+                "message": "CypressError: `cy.type()` failed because it targeted a disabled element.\n\nThe element typed into was:\n\n  > <input type=\"text\" class=\"o-autocomplete--input o_input pe-3 text-truncate\" role=\"combobox\" aria-autocomplete=\"list\" aria-haspopup=\"listbox\" autocomplete=\"new-password\" placeholder=\"Por ejemplo, Lumber Inc\" title=\"\" aria-expanded=\"false\">\n\nEnsure the element does not have an attribute named `disabled` before typing into it.\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` failed because it targeted a disabled element.\n\nThe element typed into was:\n\n  > <input type=\"text\" class=\"o-autocomplete--input o_input pe-3 text-truncate\" role=\"combobox\" aria-autocomplete=\"list\" aria-haspopup=\"listbox\" autocomplete=\"new-password\" placeholder=\"Por ejemplo, Lumber Inc\" title=\"\" aria-expanded=\"false\">\n\nEnsure the element does not have an attribute named `disabled` before typing into it.\n\nhttps://on.cypress.io/type\n    at <unknown> (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:118043:78)\n    at tryCatcher (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://192.168.1.10:8069/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "ed00b58f-4d8e-429b-95f1-592c377e4d61",
+              "parentUUID": "405b67a0-f367-4b12-879f-8144a7ae1ca2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "cd946a5a-e6c4-4b10-8960-ccfcec2548c9",
+            "ed00b58f-4d8e-429b-95f1-592c377e4d61"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 195188,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

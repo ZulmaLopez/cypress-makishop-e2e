@@ -1,0 +1,490 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2026-06-04T05:56:04.895Z",
+    "end": "2026-06-04T06:01:37.243Z",
+    "duration": 332348
+  },
+  "results": [
+    {
+      "uuid": "91f2ee50-a86f-479d-ba74-9924842e4cfd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\01_login.cy.js",
+      "file": "cypress\\e2e\\01_login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ccf4aa31-eda9-4963-9c85-d03316a8242a",
+          "title": "MAKISHOP - Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login exitoso con credenciales válidas",
+              "fullTitle": "MAKISHOP - Login Login exitoso con credenciales válidas",
+              "timedOut": null,
+              "duration": 19698,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').clear().type('admin@makishop.local');\ncy.get('#password').clear().type('contraseña_incorrecta');\ncy.get('form .btn-primary[type=\"submit\"]').click();\ncy.get('.alert').should('be.visible');",
+              "err": {},
+              "uuid": "3088bcff-1d77-4d1a-b1d5-aaf733e4fcad",
+              "parentUUID": "ccf4aa31-eda9-4963-9c85-d03316a8242a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login fallido con contraseña incorrecta",
+              "fullTitle": "MAKISHOP - Login Login fallido con contraseña incorrecta",
+              "timedOut": null,
+              "duration": 3508,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').clear().type('admin');\ncy.get('#password').clear().type('contraseña_incorrecta');\ncy.get('form .btn-primary[type=\"submit\"]').click();\ncy.get('.alert').should('be.visible');",
+              "err": {},
+              "uuid": "48a74500-39e2-4d29-8ae1-2cf2b75ded7b",
+              "parentUUID": "ccf4aa31-eda9-4963-9c85-d03316a8242a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3088bcff-1d77-4d1a-b1d5-aaf733e4fcad",
+            "48a74500-39e2-4d29-8ae1-2cf2b75ded7b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23206,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "82d54670-bed7-4dbc-a85c-04d4d95902ae",
+      "title": "",
+      "fullFile": "cypress\\e2e\\02_crear_cliente.cy.js",
+      "file": "cypress\\e2e\\02_crear_cliente.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7020d2fd-8a2a-411d-86e3-bebe06fe5147",
+          "title": "MAKISHOP - Crear Cliente",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Crear nuevo cliente en CRM",
+              "fullTitle": "MAKISHOP - Crear Cliente Crear nuevo cliente en CRM",
+              "timedOut": null,
+              "duration": 63321,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('example').then(datos => {\n  cy.visit('/odoo/contacts/new');\n  // Esperar que cargue el formulario\n  cy.get('.o_form_view').should('be.visible');\n  // Seleccionar tipo Empresa\n  cy.get('input[data-value=\"company\"]').click({\n    force: true\n  });\n  // Nombre de la empresa\n  cy.get('.o_field_widget[name=\"name\"] input').clear().type(datos.cliente.empresa);\n  // Email\n  cy.get('.o_field_widget[name=\"email\"] input').clear().type(datos.cliente.email);\n  // Teléfono\n  cy.get('.o_field_widget[name=\"phone\"] input').clear().type(datos.cliente.telefono);\n  // Guardar\n  cy.get('.o_form_button_save').click();\n  // Verificar que se guardó\n  cy.contains(datos.cliente.empresa).should('be.visible');\n});",
+              "err": {},
+              "uuid": "cb061f70-d792-41d3-9b17-1fe85b3b766c",
+              "parentUUID": "7020d2fd-8a2a-411d-86e3-bebe06fe5147",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cb061f70-d792-41d3-9b17-1fe85b3b766c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 63321,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "a14ee926-46f0-4f34-9df6-1d1369f3acc8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\03_crear_venta.cy.js",
+      "file": "cypress\\e2e\\03_crear_venta.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b2337841-eadb-4d2e-b191-a1b642992db4",
+          "title": "MAKISHOP - Crear Orden de Venta",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Crear cotización de venta para cliente",
+              "fullTitle": "MAKISHOP - Crear Orden de Venta Crear cotización de venta para cliente",
+              "timedOut": null,
+              "duration": 64446,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('example').then(datos => {\n  cy.visit('/odoo/sales/new');\n  // Esperar formulario\n  cy.get('.o_form_view').should('be.visible');\n  // Seleccionar cliente\n  cy.get('.o_field_widget[name=\"partner_id\"] input').type(datos.cliente.nombre);\n  cy.get('.o_field_many2one_selection .dropdown-item').first().click();\n  // Esperar que cargue tras seleccionar cliente\n  cy.wait(2000);\n  // Agregar línea de producto\n  cy.contains('Agregar un producto').click();\n  // Esperar fila nueva\n  cy.wait(1500);\n  // Input del producto usando el selector exacto\n  cy.get('div[name=\"product_template_id\"] input.o_input').should('exist').click({\n    force: true\n  }).type(datos.producto.nombre);\n  // Esperar dropdown y seleccionar\n  cy.get('.o_field_many2one_selection .dropdown-item', {\n    timeout: 10000\n  }).first().click();\n  // Guardar\n  cy.get('.o_form_button_save').click();\n  // Verificar estado de la cotización\n  cy.get('.o_statusbar_status').should('be.visible');\n});",
+              "err": {},
+              "uuid": "8ca87638-26a4-4659-9ad6-444c272bf98d",
+              "parentUUID": "b2337841-eadb-4d2e-b191-a1b642992db4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8ca87638-26a4-4659-9ad6-444c272bf98d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 64446,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "937221d6-283a-422a-9b90-e2286b3ff577",
+      "title": "",
+      "fullFile": "cypress\\e2e\\04_reporte_ventas.cy.js",
+      "file": "cypress\\e2e\\04_reporte_ventas.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cf08c816-49aa-402d-b425-03e3db3495af",
+          "title": "MAKISHOP - Reporte de Ventas",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Acceder a la lista de cotizaciones",
+              "fullTitle": "MAKISHOP - Reporte de Ventas Acceder a la lista de cotizaciones",
+              "timedOut": null,
+              "duration": 74332,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/odoo/sales');\ncy.get('body').then($body => {\n  if ($body.find('.o_dialog_container .btn-close').length) {\n    cy.get('.o_dialog_container .btn-close').click();\n  }\n});\ncy.get('.o_list_view').should('be.visible');\ncy.get('.o_data_row').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "c836ee54-c3bb-46fd-a358-90fe92caf753",
+              "parentUUID": "cf08c816-49aa-402d-b425-03e3db3495af",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ver reporte de ventas por vendedor",
+              "fullTitle": "MAKISHOP - Reporte de Ventas Ver reporte de ventas por vendedor",
+              "timedOut": null,
+              "duration": 15836,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Navegar directo al reporte de ventas\ncy.visit('/odoo/action-580');\n// Verificar que cargó el reporte\ncy.get('.o_control_panel').should('be.visible');\ncy.get('.o_graph_renderer, .o_pivot_renderer, .o_list_view').should('exist');",
+              "err": {},
+              "uuid": "0ec1c4d1-f4dd-4329-9911-5c634c23a340",
+              "parentUUID": "cf08c816-49aa-402d-b425-03e3db3495af",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c836ee54-c3bb-46fd-a358-90fe92caf753",
+            "0ec1c4d1-f4dd-4329-9911-5c634c23a340"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 90168,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ead81627-c6ef-4059-ac3f-00133184e60d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\05_faker_clientes.cy.js",
+      "file": "cypress\\e2e\\05_faker_clientes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a91918aa-a3d3-48f7-ba07-2ebce4c7bc47",
+          "title": "MAKISHOP - Pruebas con datos generados por IA",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Crear cliente generado: Cassin Group Guatemala",
+              "fullTitle": "MAKISHOP - Pruebas con datos generados por IA Crear cliente generado: Cassin Group Guatemala",
+              "timedOut": null,
+              "duration": 52384,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Cliente generado por IA:', JSON.stringify(clienteAleatorio));\ncy.visit('/odoo/contacts/new');\ncy.get('.o_form_view').should('be.visible');\n// Seleccionar tipo Empresa\ncy.get('input[data-value=\"company\"]').click({\n  force: true\n});\n// Nombre de la empresa\ncy.get('.o_field_widget[name=\"name\"] input').clear().type(clienteAleatorio.empresa);\n// Email\ncy.get('.o_field_widget[name=\"email\"] input').clear().type(clienteAleatorio.email);\n// Teléfono\ncy.get('.o_field_widget[name=\"phone\"] input').clear().type(clienteAleatorio.telefono);\n// Guardar\ncy.get('.o_form_button_save').click();\n// Verificar\ncy.contains(clienteAleatorio.empresa).should('be.visible');",
+              "err": {},
+              "uuid": "dd6bcc9c-f56a-403a-a795-3d517fb5ab82",
+              "parentUUID": "a91918aa-a3d3-48f7-ba07-2ebce4c7bc47",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Crear cotización con producto: Mouse",
+              "fullTitle": "MAKISHOP - Pruebas con datos generados por IA Crear cotización con producto: Mouse",
+              "timedOut": null,
+              "duration": 17148,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Producto generado por IA:', productoAleatorio);\ncy.visit('/odoo/sales/new');\ncy.get('.o_form_view').should('be.visible');\n// Seleccionar cliente existente\ncy.get('.o_field_widget[name=\"partner_id\"] input').type('TechZone');\ncy.get('.o_field_many2one_selection .dropdown-item').first().click();\ncy.wait(2000);\n// Agregar producto aleatorio\ncy.contains('Agregar un producto').click();\ncy.wait(1500);\ncy.get('div[name=\"product_template_id\"] input.o_input').should('exist').click({\n  force: true\n}).type(productoAleatorio);\ncy.get('.o_field_many2one_selection .dropdown-item', {\n  timeout: 10000\n}).first().click();\n// Guardar\ncy.get('.o_form_button_save').click();\ncy.get('.o_statusbar_status').should('be.visible');",
+              "err": {},
+              "uuid": "c4043270-a1b6-487a-b96a-0ec67450cb63",
+              "parentUUID": "a91918aa-a3d3-48f7-ba07-2ebce4c7bc47",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dd6bcc9c-f56a-403a-a795-3d517fb5ab82",
+            "c4043270-a1b6-487a-b96a-0ec67450cb63"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 69532,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "0a6f2ff1-169c-4a5d-9dc2-2affea14ab5f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\saucedemo.cy.js",
+      "file": "cypress\\e2e\\saucedemo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f6bb1874-a5e4-4f06-a3b1-9ef2501bcc48",
+          "title": "Automatización SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login válido",
+              "fullTitle": "Automatización SauceDemo Login válido",
+              "timedOut": null,
+              "duration": 2221,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-test=\"username\"]').type('standard_user');\ncy.get('[data-test=\"password\"]').type('secret_sauce');\ncy.get('[data-test=\"login-button\"]').click();\ncy.url().should('include', '/inventory.html');",
+              "err": {},
+              "uuid": "33e62fc1-3f84-4eb3-b11d-2c05d3206ff7",
+              "parentUUID": "f6bb1874-a5e4-4f06-a3b1-9ef2501bcc48",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login inválido",
+              "fullTitle": "Automatización SauceDemo Login inválido",
+              "timedOut": null,
+              "duration": 1116,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-test=\"username\"]').type('usuario_falso');\ncy.get('[data-test=\"password\"]').type('123456');\ncy.get('[data-test=\"login-button\"]').click();\ncy.get('[data-test=\"error\"]').should('contain', 'Username and password do not match');",
+              "err": {},
+              "uuid": "40b3325f-1080-4694-bf75-9a99dd87191c",
+              "parentUUID": "f6bb1874-a5e4-4f06-a3b1-9ef2501bcc48",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Compra completa",
+              "fullTitle": "Automatización SauceDemo Compra completa",
+              "timedOut": null,
+              "duration": 2470,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-test=\"username\"]').type('standard_user');\ncy.get('[data-test=\"password\"]').type('secret_sauce');\ncy.get('[data-test=\"login-button\"]').click();\ncy.get('[data-test=\"add-to-cart-sauce-labs-backpack\"]').click();\ncy.get('[data-test=\"add-to-cart-sauce-labs-bike-light\"]').click();\ncy.get('.shopping_cart_link').click();\ncy.get('[data-test=\"checkout\"]').click();\ncy.get('[data-test=\"firstName\"]').type('Juan');\ncy.get('[data-test=\"lastName\"]').type('Perez');\ncy.get('[data-test=\"postalCode\"]').type('01001');\ncy.get('[data-test=\"continue\"]').click();\ncy.get('[data-test=\"finish\"]').click();\ncy.get('.complete-header').should('contain', 'Thank you for your order!');",
+              "err": {},
+              "uuid": "1fb1ac89-2c64-4d13-a66a-14aa90bb3431",
+              "parentUUID": "f6bb1874-a5e4-4f06-a3b1-9ef2501bcc48",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "33e62fc1-3f84-4eb3-b11d-2c05d3206ff7",
+            "40b3325f-1080-4694-bf75-9a99dd87191c",
+            "1fb1ac89-2c64-4d13-a66a-14aa90bb3431"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5807,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T05:56:30.166Z",
+    "end": "2026-06-04T05:57:33.628Z",
+    "duration": 63462,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "82d54670-bed7-4dbc-a85c-04d4d95902ae",
+      "title": "",
+      "fullFile": "cypress\\e2e\\02_crear_cliente.cy.js",
+      "file": "cypress\\e2e\\02_crear_cliente.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7020d2fd-8a2a-411d-86e3-bebe06fe5147",
+          "title": "MAKISHOP - Crear Cliente",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Crear nuevo cliente en CRM",
+              "fullTitle": "MAKISHOP - Crear Cliente Crear nuevo cliente en CRM",
+              "timedOut": null,
+              "duration": 63321,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('example').then(datos => {\n  cy.visit('/odoo/contacts/new');\n  // Esperar que cargue el formulario\n  cy.get('.o_form_view').should('be.visible');\n  // Seleccionar tipo Empresa\n  cy.get('input[data-value=\"company\"]').click({\n    force: true\n  });\n  // Nombre de la empresa\n  cy.get('.o_field_widget[name=\"name\"] input').clear().type(datos.cliente.empresa);\n  // Email\n  cy.get('.o_field_widget[name=\"email\"] input').clear().type(datos.cliente.email);\n  // Teléfono\n  cy.get('.o_field_widget[name=\"phone\"] input').clear().type(datos.cliente.telefono);\n  // Guardar\n  cy.get('.o_form_button_save').click();\n  // Verificar que se guardó\n  cy.contains(datos.cliente.empresa).should('be.visible');\n});",
+              "err": {},
+              "uuid": "cb061f70-d792-41d3-9b17-1fe85b3b766c",
+              "parentUUID": "7020d2fd-8a2a-411d-86e3-bebe06fe5147",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cb061f70-d792-41d3-9b17-1fe85b3b766c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 63321,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

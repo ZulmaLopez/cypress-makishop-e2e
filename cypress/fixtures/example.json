@@ -1,0 +1,17 @@
+{
+  "admin": {
+    "email": "admin@makishop.local",
+    "password": "Makishop2026"
+  },
+  "cliente": {
+    "nombre": "Carlos Mendoza",
+    "empresa": "TechZone Guatemala",
+    "email": "cmendoza@techzone.gt",
+    "telefono": "+502 5534-2210",
+    "direccion": "6a Avenida 3-45 Zona 4, Ciudad de Guatemala"
+  },
+  "producto": {
+    "nombre": "Laptop",
+    "cantidad": "1"
+  }
+}

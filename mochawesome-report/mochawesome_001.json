@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T05:56:04.895Z",
+    "end": "2026-06-04T05:56:28.268Z",
+    "duration": 23373,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "91f2ee50-a86f-479d-ba74-9924842e4cfd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\01_login.cy.js",
+      "file": "cypress\\e2e\\01_login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ccf4aa31-eda9-4963-9c85-d03316a8242a",
+          "title": "MAKISHOP - Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login exitoso con credenciales válidas",
+              "fullTitle": "MAKISHOP - Login Login exitoso con credenciales válidas",
+              "timedOut": null,
+              "duration": 19698,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').clear().type('admin@makishop.local');\ncy.get('#password').clear().type('contraseña_incorrecta');\ncy.get('form .btn-primary[type=\"submit\"]').click();\ncy.get('.alert').should('be.visible');",
+              "err": {},
+              "uuid": "3088bcff-1d77-4d1a-b1d5-aaf733e4fcad",
+              "parentUUID": "ccf4aa31-eda9-4963-9c85-d03316a8242a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login fallido con contraseña incorrecta",
+              "fullTitle": "MAKISHOP - Login Login fallido con contraseña incorrecta",
+              "timedOut": null,
+              "duration": 3508,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').clear().type('admin');\ncy.get('#password').clear().type('contraseña_incorrecta');\ncy.get('form .btn-primary[type=\"submit\"]').click();\ncy.get('.alert').should('be.visible');",
+              "err": {},
+              "uuid": "48a74500-39e2-4d29-8ae1-2cf2b75ded7b",
+              "parentUUID": "ccf4aa31-eda9-4963-9c85-d03316a8242a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3088bcff-1d77-4d1a-b1d5-aaf733e4fcad",
+            "48a74500-39e2-4d29-8ae1-2cf2b75ded7b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23206,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

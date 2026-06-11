@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T05:58:42.237Z",
+    "end": "2026-06-04T06:00:12.547Z",
+    "duration": 90310,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "937221d6-283a-422a-9b90-e2286b3ff577",
+      "title": "",
+      "fullFile": "cypress\\e2e\\04_reporte_ventas.cy.js",
+      "file": "cypress\\e2e\\04_reporte_ventas.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cf08c816-49aa-402d-b425-03e3db3495af",
+          "title": "MAKISHOP - Reporte de Ventas",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Acceder a la lista de cotizaciones",
+              "fullTitle": "MAKISHOP - Reporte de Ventas Acceder a la lista de cotizaciones",
+              "timedOut": null,
+              "duration": 74332,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/odoo/sales');\ncy.get('body').then($body => {\n  if ($body.find('.o_dialog_container .btn-close').length) {\n    cy.get('.o_dialog_container .btn-close').click();\n  }\n});\ncy.get('.o_list_view').should('be.visible');\ncy.get('.o_data_row').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "c836ee54-c3bb-46fd-a358-90fe92caf753",
+              "parentUUID": "cf08c816-49aa-402d-b425-03e3db3495af",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ver reporte de ventas por vendedor",
+              "fullTitle": "MAKISHOP - Reporte de Ventas Ver reporte de ventas por vendedor",
+              "timedOut": null,
+              "duration": 15836,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Navegar directo al reporte de ventas\ncy.visit('/odoo/action-580');\n// Verificar que cargó el reporte\ncy.get('.o_control_panel').should('be.visible');\ncy.get('.o_graph_renderer, .o_pivot_renderer, .o_list_view').should('exist');",
+              "err": {},
+              "uuid": "0ec1c4d1-f4dd-4329-9911-5c634c23a340",
+              "parentUUID": "cf08c816-49aa-402d-b425-03e3db3495af",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c836ee54-c3bb-46fd-a358-90fe92caf753",
+            "0ec1c4d1-f4dd-4329-9911-5c634c23a340"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 90168,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T05:57:35.687Z",
+    "end": "2026-06-04T05:58:40.231Z",
+    "duration": 64544,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a14ee926-46f0-4f34-9df6-1d1369f3acc8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\03_crear_venta.cy.js",
+      "file": "cypress\\e2e\\03_crear_venta.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b2337841-eadb-4d2e-b191-a1b642992db4",
+          "title": "MAKISHOP - Crear Orden de Venta",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Crear cotización de venta para cliente",
+              "fullTitle": "MAKISHOP - Crear Orden de Venta Crear cotización de venta para cliente",
+              "timedOut": null,
+              "duration": 64446,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('example').then(datos => {\n  cy.visit('/odoo/sales/new');\n  // Esperar formulario\n  cy.get('.o_form_view').should('be.visible');\n  // Seleccionar cliente\n  cy.get('.o_field_widget[name=\"partner_id\"] input').type(datos.cliente.nombre);\n  cy.get('.o_field_many2one_selection .dropdown-item').first().click();\n  // Esperar que cargue tras seleccionar cliente\n  cy.wait(2000);\n  // Agregar línea de producto\n  cy.contains('Agregar un producto').click();\n  // Esperar fila nueva\n  cy.wait(1500);\n  // Input del producto usando el selector exacto\n  cy.get('div[name=\"product_template_id\"] input.o_input').should('exist').click({\n    force: true\n  }).type(datos.producto.nombre);\n  // Esperar dropdown y seleccionar\n  cy.get('.o_field_many2one_selection .dropdown-item', {\n    timeout: 10000\n  }).first().click();\n  // Guardar\n  cy.get('.o_form_button_save').click();\n  // Verificar estado de la cotización\n  cy.get('.o_statusbar_status').should('be.visible');\n});",
+              "err": {},
+              "uuid": "8ca87638-26a4-4659-9ad6-444c272bf98d",
+              "parentUUID": "b2337841-eadb-4d2e-b191-a1b642992db4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8ca87638-26a4-4659-9ad6-444c272bf98d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 64446,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

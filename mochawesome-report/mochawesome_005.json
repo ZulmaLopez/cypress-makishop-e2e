@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T06:00:17.080Z",
+    "end": "2026-06-04T06:01:26.863Z",
+    "duration": 69783,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ead81627-c6ef-4059-ac3f-00133184e60d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\05_faker_clientes.cy.js",
+      "file": "cypress\\e2e\\05_faker_clientes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a91918aa-a3d3-48f7-ba07-2ebce4c7bc47",
+          "title": "MAKISHOP - Pruebas con datos generados por IA",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Crear cliente generado: Cassin Group Guatemala",
+              "fullTitle": "MAKISHOP - Pruebas con datos generados por IA Crear cliente generado: Cassin Group Guatemala",
+              "timedOut": null,
+              "duration": 52384,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Cliente generado por IA:', JSON.stringify(clienteAleatorio));\ncy.visit('/odoo/contacts/new');\ncy.get('.o_form_view').should('be.visible');\n// Seleccionar tipo Empresa\ncy.get('input[data-value=\"company\"]').click({\n  force: true\n});\n// Nombre de la empresa\ncy.get('.o_field_widget[name=\"name\"] input').clear().type(clienteAleatorio.empresa);\n// Email\ncy.get('.o_field_widget[name=\"email\"] input').clear().type(clienteAleatorio.email);\n// Teléfono\ncy.get('.o_field_widget[name=\"phone\"] input').clear().type(clienteAleatorio.telefono);\n// Guardar\ncy.get('.o_form_button_save').click();\n// Verificar\ncy.contains(clienteAleatorio.empresa).should('be.visible');",
+              "err": {},
+              "uuid": "dd6bcc9c-f56a-403a-a795-3d517fb5ab82",
+              "parentUUID": "a91918aa-a3d3-48f7-ba07-2ebce4c7bc47",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Crear cotización con producto: Mouse",
+              "fullTitle": "MAKISHOP - Pruebas con datos generados por IA Crear cotización con producto: Mouse",
+              "timedOut": null,
+              "duration": 17148,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Producto generado por IA:', productoAleatorio);\ncy.visit('/odoo/sales/new');\ncy.get('.o_form_view').should('be.visible');\n// Seleccionar cliente existente\ncy.get('.o_field_widget[name=\"partner_id\"] input').type('TechZone');\ncy.get('.o_field_many2one_selection .dropdown-item').first().click();\ncy.wait(2000);\n// Agregar producto aleatorio\ncy.contains('Agregar un producto').click();\ncy.wait(1500);\ncy.get('div[name=\"product_template_id\"] input.o_input').should('exist').click({\n  force: true\n}).type(productoAleatorio);\ncy.get('.o_field_many2one_selection .dropdown-item', {\n  timeout: 10000\n}).first().click();\n// Guardar\ncy.get('.o_form_button_save').click();\ncy.get('.o_statusbar_status').should('be.visible');",
+              "err": {},
+              "uuid": "c4043270-a1b6-487a-b96a-0ec67450cb63",
+              "parentUUID": "a91918aa-a3d3-48f7-ba07-2ebce4c7bc47",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dd6bcc9c-f56a-403a-a795-3d517fb5ab82",
+            "c4043270-a1b6-487a-b96a-0ec67450cb63"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 69532,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
